@@ -334,6 +334,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_staff_staff_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/staff/staff.component */ "./src/app/pages/staff/staff.component.ts");
 /* harmony import */ var _pages_areas_areas_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/areas/areas.component */ "./src/app/pages/areas/areas.component.ts");
 /* harmony import */ var _pages_approved_approved_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/approved/approved.component */ "./src/app/pages/approved/approved.component.ts");
+/* harmony import */ var _pages_performance_performance_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pages/performance/performance.component */ "./src/app/pages/performance/performance.component.ts");
+/* harmony import */ var _pages_performance_details_performance_details_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pages/performance-details/performance-details.component */ "./src/app/pages/performance-details/performance-details.component.ts");
+
+
 
 
 
@@ -361,6 +365,8 @@ var routes = [
             { path: 'reports', component: _pages_reports_reports_component__WEBPACK_IMPORTED_MODULE_10__["ReportsComponent"] },
             { path: 'staff', component: _pages_staff_staff_component__WEBPACK_IMPORTED_MODULE_11__["StaffComponent"] },
             { path: 'approvals', component: _pages_approved_approved_component__WEBPACK_IMPORTED_MODULE_13__["ApprovedComponent"] },
+            { path: 'performance', component: _pages_performance_performance_component__WEBPACK_IMPORTED_MODULE_14__["PerformanceComponent"] },
+            { path: 'performance/:id', component: _pages_performance_details_performance_details_component__WEBPACK_IMPORTED_MODULE_15__["PerformanceDetailsComponent"] },
             { path: 'home', component: _pages_home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"] },
             { path: '**', component: _shared_pagenotfound_pagenotfound_component__WEBPACK_IMPORTED_MODULE_3__["PagenotfoundComponent"] },
         ]
@@ -480,6 +486,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var angular_bootstrap_datetimepicker__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! angular-bootstrap-datetimepicker */ "./node_modules/angular-bootstrap-datetimepicker/fesm5/angular-bootstrap-datetimepicker.js");
 /* harmony import */ var _pages_department_views_department_views_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./pages/department-views/department-views.component */ "./src/app/pages/department-views/department-views.component.ts");
 /* harmony import */ var ngx_spinner__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ngx-spinner */ "./node_modules/ngx-spinner/fesm5/ngx-spinner.js");
+/* harmony import */ var _pages_performance_performance_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./pages/performance/performance.component */ "./src/app/pages/performance/performance.component.ts");
+/* harmony import */ var _pages_performance_details_performance_details_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./pages/performance-details/performance-details.component */ "./src/app/pages/performance-details/performance-details.component.ts");
+
+
 
 
 
@@ -541,6 +551,8 @@ var AppModule = /** @class */ (function () {
                 _pages_areas_areas_component__WEBPACK_IMPORTED_MODULE_20__["AreasComponent"],
                 _pages_approved_approved_component__WEBPACK_IMPORTED_MODULE_28__["ApprovedComponent"],
                 _pages_department_views_department_views_component__WEBPACK_IMPORTED_MODULE_30__["DepartmentViewsComponent"],
+                _pages_performance_performance_component__WEBPACK_IMPORTED_MODULE_32__["PerformanceComponent"],
+                _pages_performance_details_performance_details_component__WEBPACK_IMPORTED_MODULE_33__["PerformanceDetailsComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -1226,7 +1238,7 @@ module.exports = ".active{\r\n  background-color:green;\r\n}\r\n.not-active{\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"all-content-wrapper\">\r\n  <div class=\"container-fluid\">\r\n    <div class=\"row\">\r\n      <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">\r\n        <div class=\"logo-pro text-center\">\r\n          <a href=\"index.html\"\r\n            ><img\r\n              class=\"main-logo\"\r\n              src=\"./assets/img/logo/logo2.jpeg\"\r\n              style=\"height:8em;padding-top:10px;padding-bottom:30px;\"\r\n              alt=\"\"\r\n          /></a>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"product-status mg-b-15\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"row\" *ngIf=\"departments\">\r\n        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">\r\n          <div class=\"product-status-wrap drp-lst\">\r\n            <h4>Departments List</h4>\r\n            <div class=\"container\">\r\n              <div class=\"row\">\r\n                <div class=\"col-md-6 col-xs-12 col-sm-12 col-lg-3\">\r\n                  <div class=\"form-group\">\r\n                    <label class=\"small\"> Search</label>\r\n                    <input\r\n                      type=\"search\"\r\n                      (keyup)=\"onTextChange($event)\"\r\n                      class=\"form-control form-control-sm rounded\"\r\n                      placeholder=\"Search\"\r\n                      aria-describedby=\"helpId\"\r\n                    />\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-md-1 col-xs-12 col-sm-12 col-lg-1\">\r\n                  <div class=\"form-group\">\r\n                    <label for=\"\" class=\"small\">Items/page </label>\r\n                    <input\r\n                      type=\"search\"\r\n                      [(ngModel)]=\"pageSize\"\r\n                      class=\"form-control form-control-sm rounded\"\r\n                      placeholder=\"\"\r\n                      aria-describedby=\"helpId\"\r\n                    />\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-md-6 col-xs-12 col-sm-12 col-lg-3\">\r\n                  <div class=\"form-group\">\r\n                    <label class=\"small\">Sort By</label>\r\n                    <select\r\n                      class=\"form-control form-control-sm\"\r\n                      [(ngModel)]=\"order\"\r\n                    >\r\n                      <option\r\n                        *ngFor=\"let key of departmentKeys\"\r\n                        [value]=\"key\"\r\n                        >{{ key }}</option\r\n                      >\r\n                    </select>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n            </div>\r\n\r\n            <div class=\"add-product\" *ngIf=\"role == 'admin'\">\r\n              <a (click)=\"add(addcontent)\" style=\"color:white\"\r\n                >Add Departments</a\r\n              >\r\n            </div>\r\n            <div class=\"asset-inner\">\r\n              <table>\r\n                <tr>\r\n                  <th>No</th>\r\n                  <th (click)=\"reverseSort('title')\">\r\n                    Name of Dept.\r\n                    <i\r\n                      class=\"fa fa-caret-down\"\r\n                      aria-hidden=\"true\"\r\n                      *ngIf=\"order == 'title' && reverse == false\"\r\n                    ></i>\r\n                    <i\r\n                      class=\"fa fa-caret-up\"\r\n                      aria-hidden=\"true\"\r\n                      *ngIf=\"order == 'title' && reverse == true\"\r\n                    ></i>\r\n                  </th>\r\n                  <th (click)=\"reverseSort('status')\">\r\n                    Status\r\n                    <i\r\n                      class=\"fa fa-caret-down\"\r\n                      aria-hidden=\"true\"\r\n                      *ngIf=\"order == 'status' && reverse == true\"\r\n                    ></i>\r\n                    <i\r\n                      class=\"fa fa-caret-up\"\r\n                      aria-hidden=\"true\"\r\n                      *ngIf=\"order == 'status' && reverse == false\"\r\n                    ></i>\r\n                  </th>\r\n                  <th (click)=\"reverseSort('email')\">\r\n                    Email\r\n                    <i\r\n                      class=\"fa fa-caret-down\"\r\n                      aria-hidden=\"true\"\r\n                      *ngIf=\"order == 'email' && reverse == false\"\r\n                    ></i>\r\n                    <i\r\n                      class=\"fa fa-caret-up\"\r\n                      aria-hidden=\"true\"\r\n                      *ngIf=\"order == 'email' && reverse == true\"\r\n                    ></i>\r\n                  </th>\r\n                  <th (click)=\"reverseSort('phone')\">\r\n                    Phone\r\n                    <i\r\n                      class=\"fa fa-caret-down\"\r\n                      aria-hidden=\"true\"\r\n                      *ngIf=\"order == 'phone' && reverse == false\"\r\n                    ></i>\r\n                    <i\r\n                      class=\"fa fa-caret-up\"\r\n                      aria-hidden=\"true\"\r\n                      *ngIf=\"order == 'phone' && reverse == true\"\r\n                    ></i>\r\n                  </th>\r\n                  <!-- <th>Areas</th> -->\r\n                  <th>Setting</th>\r\n                </tr>\r\n                <tr\r\n                  *ngFor=\"\r\n                    let x of (departments\r\n                      | slice\r\n                        : (page - 1) * pageSize\r\n                        : (page - 1) * pageSize + pageSize\r\n                      | filterBy: searchTerm\r\n                      | orderBy: order:reverse);\r\n                    let i = index\r\n                  \"\r\n                >\r\n                  <td>{{ x.index }}</td>\r\n                  <td>{{ x?.title }}</td>\r\n                  <td>\r\n                    <button\r\n                      class=\"pd-setting\"\r\n                      [ngClass]=\"x.status === true ? 'active' : 'not-active'\"\r\n                    >\r\n                      {{ x.status == true ? \"Active\" : \"Not Active\" }}\r\n                    </button>\r\n                  </td>\r\n                  <!-- <td>{{ x.head?.firstName || \"N/A\" }}</td> -->\r\n                  <td>asdad{{ x.email }}</td>\r\n                  <td>{{ x.phone }}</td>\r\n                  <!-- <td>{{ x?.areas }}</td> -->\r\n                  <td>\r\n\r\n                      <button\r\n                      title=\"Graph\"\r\n                      class=\"pd-setting-ed\"\r\n                      (click)=\"viewDetails(detailcontent, x)\">\r\n                      <i class=\"fa fa-expand\" aria-hidden=\"true\"></i>\r\n                    </button>\r\n                    <button\r\n                      title=\"Edit\"\r\n                      class=\"pd-setting-ed\"\r\n                      (click)=\"edit(editcontent, x)\"\r\n                    >\r\n                      <i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i>\r\n                    </button>\r\n                    <button\r\n                      title=\"Trash\"\r\n                      class=\"pd-setting-ed\"\r\n                      (click)=\"delete(deletecontent, x)\"\r\n                    >\r\n                      <i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i>\r\n                    </button>\r\n                  </td>\r\n                </tr>\r\n              </table>\r\n            </div>\r\n\r\n            <div class=\"row\">\r\n              <div class=\"col-md-12 col-xs-12 col-lg-12 col-sm-12 \">\r\n                <div class=\"text-center\" style=\"text-align: center\">\r\n                  <ngb-pagination\r\n                    class=\"custom-pagination text-center\"\r\n                    [(page)]=\"page\"\r\n                    [pageSize]=\"pageSize\"\r\n                    style=\"text-align:center\"\r\n                    [collectionSize]=\"departments.length\"\r\n                  ></ngb-pagination>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <app-footer> </app-footer>\r\n</div>\r\n\r\n<ng-template #addcontent let-modal>\r\n  <div class=\"modal-header\">\r\n    <h4 class=\"modal-title\" id=\"modal-basic-title\">Add Department</h4>\r\n    <button\r\n      type=\"button\"\r\n      class=\"close\"\r\n      aria-label=\"Close\"\r\n      (click)=\"modal.dismiss('Cross click')\"\r\n    >\r\n      <span aria-hidden=\"true\">&times;</span>\r\n    </button>\r\n  </div>\r\n  <div class=\"modal-body container\">\r\n    <div class=\"container\">\r\n      <div class=\"col-md-12\">\r\n        <div class=\"bodyx\">\r\n          <form\r\n            class=\"form-signin\"\r\n            action=\"#\"\r\n            id=\"departmentForm\"\r\n            [formGroup]=\"departmentForm\"\r\n            (ngSubmit)=\"onSubmit()\"\r\n          >\r\n            <div class=\"text-center mb-4\">\r\n              <img\r\n                class=\"mb-4\"\r\n                src=\"http://cdn2.hubspot.net/hub/270076/file-1598465330-png/website2014/solutions-departments.png?t=1423194477519\"\r\n                alt=\"\"\r\n                width=\"72\"\r\n                height=\"72\"\r\n              />\r\n              <h1 class=\"h3 mb-3 font-weight-normal\">Create Department</h1>\r\n              <p>\r\n                Please make sure every information entered is\r\n                <code>correctly formatted</code>\r\n              </p>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"\">Department Title*</label>\r\n              <input\r\n                type=\"text\"\r\n                formControlName=\"title\"\r\n                class=\"form-control\"\r\n                placeholder=\"\"\r\n              />\r\n            </div>\r\n\r\n            <div class=\"form-group\">\r\n              <label for=\"\">Department Email</label>\r\n              <input\r\n                type=\"email\"\r\n                formControlName=\"email\"\r\n                class=\"form-control\"\r\n                placeholder=\"\"\r\n                aria-describedby=\"helpId\"\r\n              />\r\n            </div>\r\n\r\n            <div class=\"form-group\">\r\n              <label for=\"\">Phone</label>\r\n              <input\r\n                type=\"phone\"\r\n                class=\"form-control\"\r\n                formControlName=\"phone\"\r\n                aria-describedby=\"emailHelpId\"\r\n                placeholder=\"\"\r\n              />\r\n            </div>\r\n\r\n            <div class=\"form-group\">\r\n              <label for=\"\">Status</label>\r\n              <select class=\"form-control\" formControlName=\"status\">\r\n                <option value=\"true\">active</option>\r\n                <option value=\"false\">In Active</option>\r\n              </select>\r\n            </div>\r\n            <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">\r\n              Create\r\n            </button>\r\n            <p class=\"mt-5 mb-3 text-muted text-center\">&copy; 2017-2018</p>\r\n          </form>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button\r\n      type=\"button\"\r\n      class=\"btn btn-outline-dark\"\r\n      (click)=\"modal.close('Save click')\"\r\n    >\r\n      Save\r\n    </button>\r\n  </div>\r\n</ng-template>\r\n\r\n<ng-template #editcontent let-modal>\r\n  <div class=\"modal-header\">\r\n    <h4 class=\"modal-title\" id=\"modal-basic-title\">Edit Department</h4>\r\n    <button\r\n      type=\"button\"\r\n      class=\"close\"\r\n      aria-label=\"Close\"\r\n      (click)=\"modal.dismiss('Cross click')\"\r\n    >\r\n      <span aria-hidden=\"true\">&times;</span>\r\n    </button>\r\n  </div>\r\n  <div class=\"modal-body container\">\r\n    <div class=\"container\">\r\n      <div class=\"col-md-12\">\r\n        <div class=\"bodyx\">\r\n          <form\r\n            class=\"form-signin\"\r\n            id=\"departmentForm\"\r\n            [formGroup]=\"departmentForm\"\r\n            (ngSubmit)=\"onUpdate()\"\r\n          >\r\n            <div class=\"text-center mb-4\">\r\n              <img\r\n                class=\"mb-4\"\r\n                src=\"http://cdn2.hubspot.net/hub/270076/file-1598465330-png/website2014/solutions-departments.png?t=1423194477519\"\r\n                alt=\"\"\r\n                width=\"72\"\r\n                height=\"72\"\r\n              />\r\n              <h1 class=\"h3 mb-3 font-weight-normal\">Create Department</h1>\r\n              <p>\r\n                Please make sure every information entered is\r\n                <code>correctly formatted</code>\r\n              </p>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"\">Department Title*</label>\r\n              <input\r\n                type=\"text\"\r\n                formControlName=\"title\"\r\n                class=\"form-control\"\r\n                placeholder=\"\"\r\n              />\r\n            </div>\r\n\r\n            <div class=\"form-group\">\r\n              <label for=\"\">Department Email</label>\r\n              <input\r\n                type=\"email\"\r\n                formControlName=\"email\"\r\n                class=\"form-control\"\r\n                placeholder=\"\"\r\n                aria-describedby=\"helpId\"\r\n              />\r\n            </div>\r\n\r\n            <div class=\"form-group\">\r\n              <label for=\"\">Phone</label>\r\n              <input\r\n                type=\"phone\"\r\n                class=\"form-control\"\r\n                formControlName=\"phone\"\r\n                aria-describedby=\"emailHelpId\"\r\n                placeholder=\"\"\r\n              />\r\n            </div>\r\n\r\n            <div class=\"form-group\">\r\n              <label for=\"\">Status</label>\r\n              <select class=\"form-control\" formControlName=\"status\">\r\n                <option value=\"true\">active</option>\r\n                <option value=\"false\">In Active</option>\r\n              </select>\r\n            </div>\r\n            <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">\r\n              Update\r\n            </button>\r\n          </form>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button\r\n      type=\"button\"\r\n      class=\"btn btn-outline-dark\"\r\n      (click)=\"modal.close('Save click')\"\r\n    >\r\n      Save\r\n    </button>\r\n  </div>\r\n</ng-template>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<ng-template #deletecontent let-modal>\r\n  <div class=\"modal-header\">\r\n    <h4 class=\"modal-title\" id=\"modal-basic-title\">Add Department</h4>\r\n    <button\r\n      type=\"button\"\r\n      class=\"close\"\r\n      aria-label=\"Close\"\r\n      (click)=\"modal.dismiss('Cross click')\"\r\n    >\r\n      <span aria-hidden=\"true\">&times;</span>\r\n    </button>\r\n  </div>\r\n  <div class=\"modal-body container\">\r\n    <div class=\"container\">\r\n      <div class=\"col-md-12\">\r\n        Are you sure you want to delete the following document?\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button type=\"button\" class=\"btn btn-outline-dark\" (click)=\"onDelete()\">\r\n      Delete\r\n    </button>\r\n  </div>\r\n</ng-template>\r\n\r\n\r\n\r\n\r\n<ng-template #detailcontent let-modal>\r\n    <div class=\"modal-header\">\r\n      <h4 class=\"modal-title\" id=\"modal-basic-title\">Details Report</h4>\r\n      <!-- <button\r\n        type=\"button\"\r\n        class=\"close\"\r\n        aria-label=\"Close\"\r\n        (click)=\"modal.dismiss('Cross click')\"\r\n      >\r\n        <span aria-hidden=\"true\">&times;</span>\r\n      </button>\r\n      -->\r\n    </div>\r\n    <div class=\"modal-body container\">\r\n      <div class=\"container\">\r\n        <div class=\"col-md-12\"  *ngIf=\"view == 'table'\">\r\n           <table class=\"table\" *ngIf=\"departmentData\">\r\n             <thead>\r\n               <tr>\r\n                 <th>Total Patients</th>\r\n                 <th>Resus</th>\r\n                 <th>UTC</th>\r\n                 <th>Majors</th>\r\n                 <th>Paedritics</th>\r\n                 <th>Triage</th>\r\n               </tr>\r\n             </thead>\r\n             <tbody>\r\n               <tr >\r\n                 <td>{{departmentData?.totalPatients}}</td>\r\n                 <td>{{departmentData?.resus}}</td>\r\n                 <td>{{departmentData?.utc}}</td>\r\n                 <td>{{departmentData?.majors}}</td>\r\n                 <td>{{departmentData?.paediatrics}}</td>\r\n                 <td>{{departmentData?.triage}}</td>\r\n               </tr>\r\n             </tbody>\r\n           </table>\r\n           <div class=\"text-danger display-4 text-center\" *ngIf=\"!departmentData\">\r\n             <p>No Data Found</p>\r\n           </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"modal-footer\">\r\n      <button type=\"button\" class=\"btn btn-outline-dark\" (click)=\"closeModal()\">\r\n        Delete\r\n      </button>\r\n    </div>\r\n  </ng-template>\r\n"
+module.exports = "<div class=\"all-content-wrapper\">\r\n  <div class=\"container-fluid\">\r\n    <div class=\"row\">\r\n      <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">\r\n        <div class=\"logo-pro text-center\">\r\n          <a href=\"index.html\"\r\n            ><img\r\n              class=\"main-logo\"\r\n              src=\"./assets/img/logo/logo2.jpeg\"\r\n              style=\"height:8em;padding-top:10px;padding-bottom:30px;\"\r\n              alt=\"\"\r\n          /></a>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n\r\n  <div class=\"product-status mg-b-15\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"row\" *ngIf=\"departments\">\r\n        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">\r\n          <div class=\"product-status-wrap drp-lst\">\r\n            <h4>Departments List</h4>\r\n            <div class=\"container\">\r\n              <div class=\"row\">\r\n                <div class=\"col-md-6 col-xs-12 col-sm-12 col-lg-3\">\r\n                  <div class=\"form-group\">\r\n                    <label class=\"small\"> Search</label>\r\n                    <input\r\n                      type=\"search\"\r\n                      (keyup)=\"onTextChange($event)\"\r\n                      class=\"form-control form-control-sm rounded\"\r\n                      placeholder=\"Search\"\r\n                      aria-describedby=\"helpId\"\r\n                    />\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-md-1 col-xs-12 col-sm-12 col-lg-1\">\r\n                  <div class=\"form-group\">\r\n                    <label for=\"\" class=\"small\">Items/page </label>\r\n                    <input\r\n                      type=\"search\"\r\n                      [(ngModel)]=\"pageSize\"\r\n                      class=\"form-control form-control-sm rounded\"\r\n                      placeholder=\"\"\r\n                      aria-describedby=\"helpId\"\r\n                    />\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-md-6 col-xs-12 col-sm-12 col-lg-3\">\r\n                  <div class=\"form-group\">\r\n                    <label class=\"small\">Sort By</label>\r\n                    <select\r\n                      class=\"form-control form-control-sm\"\r\n                      [(ngModel)]=\"order\"\r\n                    >\r\n                      <option\r\n                        *ngFor=\"let key of departmentKeys\"\r\n                        [value]=\"key\"\r\n                        >{{ key }}</option\r\n                      >\r\n                    </select>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"add-product\" *ngIf=\"role == 'admin'\">\r\n              <a (click)=\"add(addcontent)\" style=\"color:white\"\r\n                >Add Departments</a\r\n              >\r\n            </div>\r\n            <div class=\"asset-inner\">\r\n              <table>\r\n                <tr>\r\n                  <th>No</th>\r\n                  <th (click)=\"reverseSort('title')\">\r\n                    Name of Dept.\r\n                    <i\r\n                      class=\"fa fa-caret-down\"\r\n                      aria-hidden=\"true\"\r\n                      *ngIf=\"order == 'title' && reverse == false\"\r\n                    ></i>\r\n                    <i\r\n                      class=\"fa fa-caret-up\"\r\n                      aria-hidden=\"true\"\r\n                      *ngIf=\"order == 'title' && reverse == true\"\r\n                    ></i>\r\n                  </th>\r\n                  <th (click)=\"reverseSort('status')\">\r\n                    Status\r\n                    <i\r\n                      class=\"fa fa-caret-down\"\r\n                      aria-hidden=\"true\"\r\n                      *ngIf=\"order == 'status' && reverse == true\"\r\n                    ></i>\r\n                    <i\r\n                      class=\"fa fa-caret-up\"\r\n                      aria-hidden=\"true\"\r\n                      *ngIf=\"order == 'status' && reverse == false\"\r\n                    ></i>\r\n                  </th>\r\n                  <th (click)=\"reverseSort('email')\">\r\n                    Email\r\n                    <i\r\n                      class=\"fa fa-caret-down\"\r\n                      aria-hidden=\"true\"\r\n                      *ngIf=\"order == 'email' && reverse == false\"\r\n                    ></i>\r\n                    <i\r\n                      class=\"fa fa-caret-up\"\r\n                      aria-hidden=\"true\"\r\n                      *ngIf=\"order == 'email' && reverse == true\"\r\n                    ></i>\r\n                  </th>\r\n                  <th (click)=\"reverseSort('phone')\">\r\n                    Phone\r\n                    <i\r\n                      class=\"fa fa-caret-down\"\r\n                      aria-hidden=\"true\"\r\n                      *ngIf=\"order == 'phone' && reverse == false\"\r\n                    ></i>\r\n                    <i\r\n                      class=\"fa fa-caret-up\"\r\n                      aria-hidden=\"true\"\r\n                      *ngIf=\"order == 'phone' && reverse == true\"\r\n                    ></i>\r\n                  </th>\r\n                  <!-- <th>Areas</th> -->\r\n                  <th>Setting</th>\r\n                </tr>\r\n                <tr\r\n                  *ngFor=\"\r\n                    let x of (departments\r\n                      | slice\r\n                        : (page - 1) * pageSize\r\n                        : (page - 1) * pageSize + pageSize\r\n                      | filterBy: searchTerm\r\n                      | orderBy: order:reverse);\r\n                    let i = index\r\n                  \"\r\n                >\r\n                  <td>{{ x.index }}</td>\r\n                  <td>{{ x?.title }}</td>\r\n                  <td>\r\n                    <button\r\n                      class=\"pd-setting\"\r\n                      [ngClass]=\"x.status === true ? 'active' : 'not-active'\"\r\n                    >\r\n                      {{ x.status == true ? \"Active\" : \"Not Active\" }}\r\n                    </button>\r\n                  </td>\r\n                  <!-- <td>{{ x.head?.firstName || \"N/A\" }}</td> -->\r\n                  <td>asdad{{ x.email }}</td>\r\n                  <td>{{ x.phone }}</td>\r\n                  <!-- <td>{{ x?.areas }}</td> -->\r\n                  <td>\r\n\r\n                      <button\r\n                      title=\"Graph\"\r\n                      class=\"pd-setting-ed\"\r\n                      (click)=\"viewDetails(detailcontent, x)\">\r\n                      <i class=\"fa fa-expand\" aria-hidden=\"true\"></i>\r\n                    </button>\r\n                    <button\r\n                      title=\"Edit\"\r\n                      class=\"pd-setting-ed\"\r\n                      (click)=\"edit(editcontent, x)\"\r\n                    >\r\n                      <i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i>\r\n                    </button>\r\n                    <button\r\n                      title=\"Trash\"\r\n                      class=\"pd-setting-ed\"\r\n                      (click)=\"delete(deletecontent, x)\"\r\n                    >\r\n                      <i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i>\r\n                    </button>\r\n                  </td>\r\n                </tr>\r\n              </table>\r\n            </div>\r\n\r\n            <div class=\"row\">\r\n              <div class=\"col-md-12 col-xs-12 col-lg-12 col-sm-12 \">\r\n                <div class=\"text-center\" style=\"text-align: center\">\r\n                  <ngb-pagination\r\n                    class=\"custom-pagination text-center\"\r\n                    [(page)]=\"page\"\r\n                    [pageSize]=\"pageSize\"\r\n                    style=\"text-align:center\"\r\n                    [collectionSize]=\"departments.length\"\r\n                  ></ngb-pagination>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <app-footer> </app-footer>\r\n</div>\r\n\r\n<ng-template #addcontent let-modal>\r\n  <div class=\"modal-header\">\r\n    <h4 class=\"modal-title\" id=\"modal-basic-title\">Add Department</h4>\r\n    <button\r\n      type=\"button\"\r\n      class=\"close\"\r\n      aria-label=\"Close\"\r\n      (click)=\"modal.dismiss('Cross click')\"\r\n    >\r\n      <span aria-hidden=\"true\">&times;</span>\r\n    </button>\r\n  </div>\r\n  <div class=\"modal-body container\">\r\n    <div class=\"container\">\r\n      <div class=\"col-md-12\">\r\n        <div class=\"bodyx\">\r\n          <form\r\n            class=\"form-signin\"\r\n            action=\"#\"\r\n            id=\"departmentForm\"\r\n            [formGroup]=\"departmentForm\"\r\n            (ngSubmit)=\"onSubmit()\"\r\n          >\r\n            <div class=\"text-center mb-4\">\r\n              <img\r\n                class=\"mb-4\"\r\n                src=\"http://cdn2.hubspot.net/hub/270076/file-1598465330-png/website2014/solutions-departments.png?t=1423194477519\"\r\n                alt=\"\"\r\n                width=\"72\"\r\n                height=\"72\"\r\n              />\r\n              <h1 class=\"h3 mb-3 font-weight-normal\">Create Department</h1>\r\n              <p>\r\n                Please make sure every information entered is\r\n                <code>correctly formatted</code>\r\n              </p>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"\">Department Title*</label>\r\n              <input\r\n                type=\"text\"\r\n                formControlName=\"title\"\r\n                class=\"form-control\"\r\n                placeholder=\"\"\r\n              />\r\n            </div>\r\n\r\n            <div class=\"form-group\">\r\n              <label for=\"\">Department Email</label>\r\n              <input\r\n                type=\"email\"\r\n                formControlName=\"email\"\r\n                class=\"form-control\"\r\n                placeholder=\"\"\r\n                aria-describedby=\"helpId\"\r\n              />\r\n            </div>\r\n\r\n            <div class=\"form-group\">\r\n              <label for=\"\">Phone</label>\r\n              <input\r\n                type=\"phone\"\r\n                class=\"form-control\"\r\n                formControlName=\"phone\"\r\n                aria-describedby=\"emailHelpId\"\r\n                placeholder=\"\"\r\n              />\r\n            </div>\r\n\r\n            <div class=\"form-group\">\r\n              <label for=\"\">Status</label>\r\n              <select class=\"form-control\" formControlName=\"status\">\r\n                <option value=\"true\">active</option>\r\n                <option value=\"false\">In Active</option>\r\n              </select>\r\n            </div>\r\n            <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">\r\n              Create\r\n            </button>\r\n            <p class=\"mt-5 mb-3 text-muted text-center\">&copy; 2017-2018</p>\r\n          </form>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button\r\n      type=\"button\"\r\n      class=\"btn btn-outline-dark\"\r\n      (click)=\"modal.close('Save click')\"\r\n    >\r\n      Save\r\n    </button>\r\n  </div>\r\n</ng-template>\r\n\r\n<ng-template #editcontent let-modal>\r\n  <div class=\"modal-header\">\r\n    <h4 class=\"modal-title\" id=\"modal-basic-title\">Edit Department</h4>\r\n    <button\r\n      type=\"button\"\r\n      class=\"close\"\r\n      aria-label=\"Close\"\r\n      (click)=\"modal.dismiss('Cross click')\"\r\n    >\r\n      <span aria-hidden=\"true\">&times;</span>\r\n    </button>\r\n  </div>\r\n  <div class=\"modal-body container\">\r\n    <div class=\"container\">\r\n      <div class=\"col-md-12\">\r\n        <div class=\"bodyx\">\r\n          <form\r\n            class=\"form-signin\"\r\n            id=\"departmentForm\"\r\n            [formGroup]=\"departmentForm\"\r\n            (ngSubmit)=\"onUpdate()\"\r\n          >\r\n            <div class=\"text-center mb-4\">\r\n              <img\r\n                class=\"mb-4\"\r\n                src=\"http://cdn2.hubspot.net/hub/270076/file-1598465330-png/website2014/solutions-departments.png?t=1423194477519\"\r\n                alt=\"\"\r\n                width=\"72\"\r\n                height=\"72\"\r\n              />\r\n              <h1 class=\"h3 mb-3 font-weight-normal\">Create Department</h1>\r\n              <p>\r\n                Please make sure every information entered is\r\n                <code>correctly formatted</code>\r\n              </p>\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"\">Department Title*</label>\r\n              <input\r\n                type=\"text\"\r\n                formControlName=\"title\"\r\n                class=\"form-control\"\r\n                placeholder=\"\"\r\n              />\r\n            </div>\r\n\r\n            <div class=\"form-group\">\r\n              <label for=\"\">Department Email</label>\r\n              <input\r\n                type=\"email\"\r\n                formControlName=\"email\"\r\n                class=\"form-control\"\r\n                placeholder=\"\"\r\n                aria-describedby=\"helpId\"\r\n              />\r\n            </div>\r\n\r\n            <div class=\"form-group\">\r\n              <label for=\"\">Phone</label>\r\n              <input\r\n                type=\"phone\"\r\n                class=\"form-control\"\r\n                formControlName=\"phone\"\r\n                aria-describedby=\"emailHelpId\"\r\n                placeholder=\"\"\r\n              />\r\n            </div>\r\n\r\n            <div class=\"form-group\">\r\n              <label for=\"\">Status</label>\r\n              <select class=\"form-control\" formControlName=\"status\">\r\n                <option value=\"true\">active</option>\r\n                <option value=\"false\">In Active</option>\r\n              </select>\r\n            </div>\r\n            <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">\r\n              Update\r\n            </button>\r\n          </form>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button\r\n      type=\"button\"\r\n      class=\"btn btn-outline-dark\"\r\n      (click)=\"modal.close('Save click')\"\r\n    >\r\n      Save\r\n    </button>\r\n  </div>\r\n</ng-template>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<ng-template #deletecontent let-modal>\r\n  <div class=\"modal-header\">\r\n    <h4 class=\"modal-title\" id=\"modal-basic-title\">Add Department</h4>\r\n    <button\r\n      type=\"button\"\r\n      class=\"close\"\r\n      aria-label=\"Close\"\r\n      (click)=\"modal.dismiss('Cross click')\"\r\n    >\r\n      <span aria-hidden=\"true\">&times;</span>\r\n    </button>\r\n  </div>\r\n  <div class=\"modal-body container\">\r\n    <div class=\"container\">\r\n      <div class=\"col-md-12\">\r\n        Are you sure you want to delete the following document?\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div class=\"modal-footer\">\r\n    <button type=\"button\" class=\"btn btn-outline-dark\" (click)=\"onDelete()\">\r\n      Delete\r\n    </button>\r\n  </div>\r\n</ng-template>\r\n\r\n\r\n\r\n\r\n<ng-template #detailcontent let-modal>\r\n    <div class=\"modal-header\">\r\n      <h4 class=\"modal-title\" id=\"modal-basic-title\">Details Report</h4>\r\n      <!-- <button\r\n        type=\"button\"\r\n        class=\"close\"\r\n        aria-label=\"Close\"\r\n        (click)=\"modal.dismiss('Cross click')\"\r\n      >\r\n        <span aria-hidden=\"true\">&times;</span>\r\n      </button>\r\n      -->\r\n    </div>\r\n    <div class=\"modal-body container\">\r\n      <div class=\"container\">\r\n        <div class=\"col-md-12\"  *ngIf=\"view == 'table'\">\r\n           <table class=\"table\" *ngIf=\"departmentData\">\r\n             <thead>\r\n               <tr>\r\n                 <th>Total Patients</th>\r\n                 <th>Resus</th>\r\n                 <th>UTC</th>\r\n                 <th>Majors</th>\r\n                 <th>Paedritics</th>\r\n                 <th>Triage</th>\r\n               </tr>\r\n             </thead>\r\n             <tbody>\r\n               <tr >\r\n                 <td>{{departmentData?.totalPatients}}</td>\r\n                 <td>{{departmentData?.resus}}</td>\r\n                 <td>{{departmentData?.utc}}</td>\r\n                 <td>{{departmentData?.majors}}</td>\r\n                 <td>{{departmentData?.paediatrics}}</td>\r\n                 <td>{{departmentData?.triage}}</td>\r\n               </tr>\r\n             </tbody>\r\n           </table>\r\n           <div class=\"text-danger text-center\" *ngIf=\"!departmentData\">\r\n             <p>No Data Found</p>\r\n           </div>\r\n        </div>\r\n        <div class=\"col-md-12\" *ngIf=\"view !== 'table'\">\r\n          <h1>HELLO WORLD</h1>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"modal-footer\">\r\n      <button type=\"button\" class=\"btn btn-outline-dark\" (click)=\"closeModal()\">\r\n        Close\r\n      </button>\r\n    </div>\r\n  </ng-template>\r\n"
 
 /***/ }),
 
@@ -1733,6 +1745,451 @@ var ManagersComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_api_api_service__WEBPACK_IMPORTED_MODULE_2__["ApiService"]])
     ], ManagersComponent);
     return ManagersComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/performance-details/performance-details.component.css":
+/*!*****************************************************************************!*\
+  !*** ./src/app/pages/performance-details/performance-details.component.css ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3BlcmZvcm1hbmNlLWRldGFpbHMvcGVyZm9ybWFuY2UtZGV0YWlscy5jb21wb25lbnQuY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/pages/performance-details/performance-details.component.html":
+/*!******************************************************************************!*\
+  !*** ./src/app/pages/performance-details/performance-details.component.html ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  performance-details works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/pages/performance-details/performance-details.component.ts":
+/*!****************************************************************************!*\
+  !*** ./src/app/pages/performance-details/performance-details.component.ts ***!
+  \****************************************************************************/
+/*! exports provided: PerformanceDetailsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PerformanceDetailsComponent", function() { return PerformanceDetailsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var PerformanceDetailsComponent = /** @class */ (function () {
+    function PerformanceDetailsComponent() {
+    }
+    PerformanceDetailsComponent.prototype.ngOnInit = function () {
+    };
+    PerformanceDetailsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-performance-details',
+            template: __webpack_require__(/*! ./performance-details.component.html */ "./src/app/pages/performance-details/performance-details.component.html"),
+            styles: [__webpack_require__(/*! ./performance-details.component.css */ "./src/app/pages/performance-details/performance-details.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], PerformanceDetailsComponent);
+    return PerformanceDetailsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/performance/performance.component.css":
+/*!*************************************************************!*\
+  !*** ./src/app/pages/performance/performance.component.css ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3BlcmZvcm1hbmNlL3BlcmZvcm1hbmNlLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/pages/performance/performance.component.html":
+/*!**************************************************************!*\
+  !*** ./src/app/pages/performance/performance.component.html ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"all-content-wrapper\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">\n        <div class=\"logo-pro text-center\">\n          <a href=\"index.html\"\n            ><img\n              class=\"main-logo\"\n              src=\"./assets/img/logo/logo2.jpeg\"\n              style=\"height:8em;padding-top:10px;padding-bottom:30px;\"\n              alt=\"\"\n          /></a>\n        </div>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"product-status mg-b-15\">\n    <div class=\"container-fluid\">\n      <div class=\"row\" *ngIf=\"performances\">\n        <div class=\"col-lg-12 col-md-12 col-sm-12 col-xs-12\">\n          <div class=\"product-status-wrap drp-lst\">\n            <h4>Performance Details</h4>\n            <div class=\"container\">\n              <div class=\"row\">\n                <div class=\"col-md-6 col-xs-12 col-sm-12 col-lg-3\">\n                    <div class=\"form-group\" >\n                        <label class=\"small\">Department*</label>\n                        <ngx-select\n                        [(ngModel)]=\"searchTerm.department\"\n                        placeholder=\"Search\"\n                        [items]=\"departments\" ></ngx-select>\n                      </div>\n                </div>\n                <div class=\"col-md-1 col-xs-12 col-sm-12 col-lg-1\">\n                  <div class=\"form-group\">\n                    <label for=\"\" class=\"small\">Items/page </label>\n                    <input\n                      type=\"search\"\n                      [(ngModel)]=\"pageSize\"\n                      class=\"form-control form-control-sm rounded\"\n                      placeholder=\"\"\n                      aria-describedby=\"helpId\"\n                    />\n                  </div>\n                </div>\n                <div class=\"col-md-6 col-xs-12 col-sm-12 col-lg-3\">\n                  <div class=\"form-group\">\n                    <label class=\"small\">Sort By</label>\n                    <select\n                      class=\"form-control form-control-sm\"\n                      [(ngModel)]=\"order\"\n                    >\n                      <option\n                        *ngFor=\"let key of reportKeys\"\n                        [value]=\"key\"\n                        >{{ key }}</option\n                      >\n                    </select>\n                  </div>\n                </div>\n              \n              </div>\n            </div>\n\n            <div class=\"add-product\" *ngIf=\"role == 'admin'\">\n              <!-- <a (click)=\"add(addcontent)\" style=\"color:white\"\n                >Add performances</a> -->\n            </div>\n            <div class=\"asset-inner\">\n                <div class=\"row\" *ngIf=\"viewType !== 'table'\">\n                  <div class=\"col-md-12\">\n                  </div>\n                    <div class=\"col-md-12 text-center\">\n                        <button\n                        title=\"Graph\"\n                        class=\"pd-setting-ed\" [class.viewActive]=\"viewType == 'details'\"\n                        (click)=\"viewDetails(selectedReport)\">\n                        <i class=\"fa fa-table\" aria-hidden=\"true\"></i>\n                      </button>\n                        <button\n                        title=\"Graph\"\n                        class=\"pd-setting-ed\"\n                        [class.viewActive]=\"viewType == 'graph' && graphType == 'pie'\"\n                        (click)=\"viewPieGraph(selectedReport.i, selectedReport)\">\n                        <i class=\"fa fa-pie-chart\" aria-hidden=\"true\"></i>\n                      </button>\n                        <button \n                        title=\"Graph\"\n                        class=\"pd-setting-ed\" [class.viewActive]=\"viewType == 'graph' && graphType == 'bar'\"\n                        (click)=\"viewBarGraph(selectedReport.i, selectedReport)\">\n                        <i class=\"fa fa-bar-chart\" aria-hidden=\"true\"></i>\n                      </button>\n                    </div>\n                  </div>\n                  <br>\n                  <hr>\n\n              <div class=\"container\" *ngIf=\"viewType == 'graph'\">\n                <div class=\"row\">\n                  <div class=\"col-md-12 text-center\">\n                    <h4>Report Details <a class=\"small\" (click)=\"backFromGraph()\">(<u>back</u>)</a></h4>\n                  </div>\n                  <div class=\"col-md-12\" *ngIf=\"graph.data\">\n                      <plotly-plot [data]=\"graph.data\" [layout]=\"graph.layout\"\n                      [useResizeHandler]=\"false\" [style]=\"{position: 'relative', width: 'auto', height: 'auto'}\">\n                   </plotly-plot>\n                  </div>\n                </div>\n              </div>\n\n              <div *ngIf=\"viewType == 'table'\">\n              <table class=\"table\" >\n                <thead>\n                <tr>\n                    <th>Area</th>\n                    <th>Manager</th>\n                    <th (click)=\"reverseSort('title')\">\n                    Created \n                    <i\n                      class=\"fa fa-caret-down\"\n                      aria-hidden=\"true\"\n                      *ngIf=\"order == 'title' && reverse == false\"\n                    ></i>\n                    <i\n                      class=\"fa fa-caret-up\"\n                      aria-hidden=\"true\"\n                      *ngIf=\"order == 'title' && reverse == true\"\n                    ></i>\n                  </th>\n                      \n                        <th (click)=\"reverseSort('majors')\">\n                            Majors.\n                            <i\n                              class=\"fa fa-caret-down\"\n                              aria-hidden=\"true\"\n                              *ngIf=\"order == 'majors' && reverse == majors\"\n                            ></i>\n                            <i\n                              class=\"fa fa-caret-up\"\n                              aria-hidden=\"true\"\n                              *ngIf=\"order == 'title' && reverse == true\"\n                            ></i>\n                          </th>\n                          <th (click)=\"reverseSort('title')\">\n                              Paediatrics\n                              <i\n                                class=\"fa fa-caret-down\"\n                                aria-hidden=\"true\"\n                                *ngIf=\"order == 'title' && reverse == false\"\n                              ></i>\n                              <i\n                                class=\"fa fa-caret-up\"\n                                aria-hidden=\"true\"\n                                *ngIf=\"order == 'title' && reverse == true\"\n                              ></i>\n                            </th>\n                  <th (click)=\"reverseSort('status')\">\n                    resus\n                    <i\n                      class=\"fa fa-caret-down\"\n                      aria-hidden=\"true\"\n                      *ngIf=\"order == 'status' && reverse == true\"\n                    ></i>\n                    <i\n                      class=\"fa fa-caret-up\"\n                      aria-hidden=\"true\"\n                      *ngIf=\"order == 'status' && reverse == false\"\n                    ></i>\n                  </th>\n\n                  <th (click)=\"reverseSort('status')\">\n                      Total\n                      <i\n                        class=\"fa fa-caret-down\"\n                        aria-hidden=\"true\"\n                        *ngIf=\"order == 'status' && reverse == true\"\n                      ></i>\n                      <i\n                        class=\"fa fa-caret-up\"\n                        aria-hidden=\"true\"\n                        *ngIf=\"order == 'status' && reverse == false\"\n                      ></i>\n                    </th>\n                 \n               \n                  <th>Setting</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr\n                  *ngFor=\"\n                    let x of performances | filterBy: searchTerm;\n                    let i = index\n                  \"\n                >\n                <td class=\"badge badge-pill text-success\">{{ x.area?.title }}</td>\n                <!-- <td>\n                    <span class=\"badge badge-success\" *ngIf=\"x.submitted == true\">Submitted</span>\n                    <span class=\"badge badge-danger\"  *ngIf=\"x.submitted == false\">Not Submitted</span>\n\n                </td> -->\n                <td>\n                  {{ x.manager?.firstName + ' ' + x.manager?.lastName }}</td>\n                  <td class=\"text-info small\">{{ x?.created_at | date }}</td>\n                  <td>\n                    <table class=\"table small\">\n                      <thead>\n                        <tr>\n                          <th class=\"small\">Attendance</th>\n                          <th class=\"small\">Breaches</th>\n                          <th class=\"small\">Performance</th>\n                        </tr>\n                      </thead>\n                      <tbody class=\"small\">\n                        <tr>\n                          <td scope=\"row\">{{ x.majors?.total_attendances }}</td>\n                          <td>{{ x.majors?.total_breaches }}</td>\n                          <td class=\"text-success\">{{ x.majors?.performance }}</td>\n                        </tr>\n                      </tbody>\n                    </table>\n                  </td>\n                  <td>\n                      <table class=\"table small\">\n                        <thead>\n                          <tr>\n                            <th class=\"small\">Attendance</th>\n                            <th class=\"small\">Breaches</th>\n                            <th class=\"small\">Performance</th>\n                          </tr>\n                        </thead>\n                        <tbody class=\"small\">\n                          <tr>\n                            <td scope=\"row\">{{ x.paeds?.total_attendances }}</td>\n                            <td>{{ x.paeds?.total_breaches }}</td>\n                            <td class=\"text-success\">{{ x.paeds?.performance }}</td>\n                          </tr>\n                        </tbody>\n                      </table>\n                    </td>\n                    <td>\n                        <table class=\"table small\">\n                          <thead>\n                            <tr>\n                              <th class=\"small\">Attendance</th>\n                              <th class=\"small\">Breaches</th>\n                              <th class=\"small\">Performance</th>\n                            </tr>\n                          </thead>\n                          <tbody class=\"small\">\n                            <tr>\n                              <td scope=\"row\">{{ x.resus?.total_attendances }}</td>\n                              <td>{{ x.resus?.total_breaches }}</td>\n                              <td class=\"text-success\">{{ x.resus?.performance }}</td>\n                            </tr>\n                          </tbody>\n                        </table>\n                      </td>\n                      <td>\n                          <table class=\"table small\" style=\"font-size:10px\">\n                            <thead>\n                              <tr>\n                                <th class=\"small\">Attendance</th>\n                                <th class=\"small\">Breaches</th>\n                                <th class=\"small\">Performance</th>\n                              </tr>\n                            </thead>\n                            <tbody class=\"small\">\n                              <tr>\n                                <td scope=\"row\">{{ x.total?.total_attendances }}</td>\n                                <td>{{ x.total?.total_breaches }}</td>\n                                <td class=\"text-success\">{{ x.total?.performance }}</td>\n                              </tr>\n                            </tbody>\n                          </table>\n                        </td>\n      \n                  <!-- <td>\n                      <button\n                      title=\"Graph\"\n                      class=\"pd-setting-ed\"\n                      (click)=\"viewDetails(x, index)\">\n                      <i class=\"fa fa-expand\" aria-hidden=\"true\"></i>\n                    </button>\n                    <button\n                      title=\"Edit\"\n                      class=\"pd-setting-ed\"\n                      (click)=\"edit(editcontent, x)\">\n                      <i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i>\n                    </button>\n                    <button\n                      title=\"Trash\"\n                      class=\"pd-setting-ed\"\n                      (click)=\"delete(deletecontent, x)\" >\n                      <i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i>\n                    </button>\n                  </td> -->\n                </tr>\n              </tbody>\n              <tfoot class=\"text-center\" style=\"text-align:center\">\n                <tr>\n                  <div class=\"col-md-12 col-xs-12 col-lg-12 col-sm-12 \">\n                      <div class=\"text-center\" style=\"text-align: center\">\n                        <ngb-pagination\n                          class=\"custom-pagination text-center\"\n                          [(page)]=\"page\"\n                          [pageSize]=\"pageSize\"\n                          style=\"text-align:center\"\n                          [collectionSize]=\"performances.length\"\n                        ></ngb-pagination>\n                      </div>\n                    </div>\n                  </tr>\n              </tfoot>\n              </table>\n            </div>\n       \n            <div class=\"container\" *ngIf=\"viewType == 'details'\">\n\n                <div class=\"row\">\n                  <div class=\"col-md-12 text-center\">\n                    <h3>Report Details\n                        <a class=\"small\" (click)=\"backFromGraph()\">(<u>back</u>)</a>\n                    </h3>\n\n                  </div>\n                  <br>\n                  <div class=\"col-md-4 text-center\">\n                    <div class=\"card text-top text-center\">\n                      <div class=\"card-body\" *ngIf=\"selectedReport\">\n                          <h4 class=\"card-title\">DEPARTMENT</h4>\n                          <p class=\"card-text text-success box-heading\" style=\"color:green;\">{{selectedReport.department?.title}}</p>\n                          <p class=\"card-text small\">\n                              <b>Phone:</b> : {{selectedReport.department?.phone}} <br>\n                              <b>Email:</b> : {{selectedReport.department?.email}} <br>\n                              <b>Status:</b> : <span class=\"badge badge-pill badge-{{selectedReport.department.status == true ? 'success':'danger'}}\">\n                                  {{selectedReport.department.status == true ? 'success':'danger'}}\n                              </span>\n                        <br>\n                            </p>\n                      </div>\n                    </div>\n                  </div>\n                  <div class=\"col-md-4 text-center\">\n                      <div class=\"card text-top text-center\">\n                        <div class=\"card-body\" *ngIf=\"selectedReport\">\n                            <h4 class=\"card-title\">MANAGER</h4>\n                            <p class=\"card-text text-success box-heading\" style=\"color:green;\">{{selectedReport.manager?.firstName + ' ' +selectedReport.manager?.lastName }} </p>\n                            <p class=\"card-text small\">\n                                <b>Phone:</b> :  {{selectedReport.manager?.phone || 'Not Provided'}} <br>\n                                <b>Username:</b> : {{selectedReport.manager?.username}} <br>\n                                <b>Approved:</b> : <span class=\"badge badge-pill badge-{{selectedReport.department.approved == true ? 'success':'danger'}}\">\n                                    {{selectedReport.department.approved == true ? 'active':'disabled'}}\n                                </span>\n                          <br>\n                              </p>\n                        </div>\n                      </div>\n                    </div>\n                    <div class=\"col-md-4 text-center\">\n                        <div class=\"card text-top text-center\">\n                          <div class=\"card-body\" *ngIf=\"selectedReport\">\n                              <h4 class=\"card-title\">AREA</h4>\n                              <p class=\"card-text text-success box-heading\" style=\"color:green;\">{{selectedReport.area?.title}}</p>\n                              <p class=\"card-text small\">\n                                  <b>Phone:</b> {{selectedReport.area?.phone}} <br>\n                                  <b>Email:</b> {{selectedReport.area?.email}} <br>\n                                  <b>Status:</b><span class=\"badge badge-pill badge-{{selectedReport.area.status == true ? 'success':'danger'}}\">\n                                      {{selectedReport.area.status == true ? 'active':'disabled'}}\n                                  </span>\n                            <br>\n                                </p>\n                          </div>\n                        </div>\n                      </div>\n                      <div class=\"col-md-1\"></div>\n                  <div class=\"col-md-10 text-center\"  *ngIf=\"selectedReport\">                     \n                      <table class=\"table table-striped table-responsive\">\n                          <thead class=\"thead-inverse text-center\">\n                            <tr>\n                              <th>Start Time</th>\n                              <th>End Time</th>\n                              <th>Created At</th>\n                              <th>Submitted On</th>\n                              <th *ngIf=\"selectedReport.assign == true\">Assigned From</th>\n                            </tr>\n                            </thead>\n                            <tbody class=\"text-center\">\n                              <tr>\n                                  <td class=\"small\">{{date(selectedReport?.startTime)}}</td>\n                                  <td class=\"small\">{{date(selectedReport?.endTime)}}</td>\n                                  <td class=\"small\">{{date(selectedReport?.created_at)}}</td>\n                                  <td class=\"small\">{{date(selectedReport?.updated_at)}}</td>\n                                  <td class=\"small\">{{selectedReport?.assignedFrom}}</td>\n                                  <td></td>\n                                <td></td>\n                              </tr>\n                              <tr>\n                                <td scope=\"row\"></td>\n                                <td></td>\n                                <td></td>\n                              </tr>\n                            </tbody>\n                        </table>\n                  </div>\n                  <div class=\"col-md-1\"></div>\n\n                  <div class=\"col-md-12\">\n                      <div class=\"col-md-12\" *ngIf=\"graph.data\">\n                          <plotly-plot [data]=\"graph.data\" [layout]=\"graph.layout\"\n                          [useResizeHandler]=\"false\" [style]=\"{position: 'relative', width: 'auto', height: 'auto'}\">\n                       </plotly-plot>\n                  </div>\n\n                </div>\n              \n\n              </div>\n            </div>\n\n            <div class=\"row\">\n\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <app-footer> </app-footer>\n</div>\n\n<ng-template #addcontent let-modal>\n    <div class=\"modal-header\">\n      <h4 class=\"modal-title\" id=\"modal-basic-title\">Edit Report</h4>\n      <button\n        type=\"button\"\n        class=\"close\"\n        aria-label=\"Close\"\n        (click)=\"modal.dismiss('Cross click')\"\n      >\n        <span aria-hidden=\"true\">&times;</span>\n      </button>\n    </div>\n    <div class=\"modal-body container\">\n      <div class=\"container\">\n        <div class=\"col-md-12\">\n          <div class=\"bodyx\">\n            <form\n              class=\"form-signin\"\n              action=\"#\"\n              id=\"reportForm\"\n              [formGroup]=\"reportForm\"\n              (ngSubmit)=\"onSubmit()\"\n            >\n              <div class=\"text-center mb-4\">\n                <img\n                  class=\"mb-4\"\n                  src=\"http://cdn2.hubspot.net/hub/270076/file-1598465330-png/website2014/solutions-performances.png?t=1423194477519\"\n                  alt=\"\"\n                  width=\"72\"\n                  height=\"72\"\n                />\n                <h1 class=\"h3 mb-3 font-weight-normal\">Create Report</h1>\n                <p>\n                  Please make sure every information entered is\n                  <code>correctly formatted</code>\n                </p>\n              </div>\n              <div class=\"row\">\n                  <div class=\"col-md-6\">\n                    <div class=\"form-group\" (click)=\"showCalender('startTime')\">\n                      <label for=\"\">Start Time</label>\n                      <input type=\"text\" disabled  [class.activeDate]=\"selectedTimeType == 'startTime'\"\n                        class=\"form-control\"\n                        formControlName=\"startTime\"\n                        placeholder=\"\">\n                    </div>\n                  </div>\n                  <div class=\"col-md-6\">\n                      <div class=\"form-group\" (click)=\"showCalender('endTime')\">\n                          <label for=\"\">End Time</label>\n                          <input type=\"text\" disabled [class.activeDate]=\"selectedTimeType == 'endTime'\"\n                          formControlName=\"endTime\"\n                            class=\"form-control\" name=\"\" id=\"\" aria-describedby=\"helpId\" placeholder=\"\">\n                        </div>\n                  </div>\n                  <div class=\"col-md-12\">\n<dl-date-time-picker\n(change)=\"setTimeValue($event)\"\n*ngIf=\"calender == true\"\n  startView=\"day\"\n  maxView=\"month\"\n  minView=\"hour\"\n  minuteStep=\"5\"\n\n>\n</dl-date-time-picker>\n</div>\n              </div>\n\n              <div class=\"form-group\" *ngIf=\"departments\">\n                  <label class=\"small\">Department*</label>\n                  <ngx-select\n                   formControlName=\"department\"\n                  (select)=\"getx($event)\"\n                  [items]=\"departments\" ></ngx-select>\n              </div>\n\n                <div class=\"form-group\" >\n                    <label class=\"small\">Areas*</label>\n                    <ngx-select formControlName=\"area\"\n                    [items]=\"areas\" ></ngx-select>\n                  </div>\n                  <div class=\"form-group\" >\n                    <label class=\"small\">Manager*</label>\n                    <ngx-select formControlName=\"manager\"\n                    [items]=\"managers\" ></ngx-select>\n                  </div>\n\n\n              <div class=\"form-group\">\n                  <label for=\"\">Total patients</label>\n                  <input\n                    type=\"number\" formControlName=\"totalPatients\" class=\"form-control\" placeholder=\"\"/>\n                </div>\n                <div class=\"form-group\">\n                    <label for=\"\">Waiting Room</label>\n                    <input\n                      type=\"number\" formControlName=\"waitingRoom\" class=\"form-control\" placeholder=\"\"/>\n                  </div>\n                  <div class=\"form-group\">\n                      <label for=\"\">Triage</label>\n                      <input\n                        type=\"number\" formControlName=\"triage\" class=\"form-control\" placeholder=\"\"/>\n                    </div>\n                    <div class=\"form-group\">\n                        <label for=\"\">UTC</label>\n                        <input\n                          type=\"number\" formControlName=\"utc\" class=\"form-control\" placeholder=\"\"/>\n                      </div>\n                      <div class=\"form-group\">\n                          <label for=\"\">Majors</label>\n                          <input\n                            type=\"number\" formControlName=\"majors\" class=\"form-control\" placeholder=\"\"/>\n                        </div>\n                        <div class=\"form-group\">\n                            <label for=\"\">paediatrics</label>\n                            <input\n                              type=\"number\" formControlName=\"paediatrics\" class=\"form-control\" placeholder=\"\"/>\n                          </div>\n                          <div class=\"form-group\">\n                              <label for=\"\">Resus</label>\n                              <input\n                                type=\"number\" formControlName=\"resus\" class=\"form-control\" placeholder=\"\"/>\n                            </div>\n                            <div class=\"form-group\">\n                                <label for=\"\">Breached</label>\n                                <input\n                                  type=\"number\" formControlName=\"breached\" class=\"form-control\" placeholder=\"\"/>\n                              </div>\n\n              <div class=\"form-group\">\n                <label for=\"\">Submitted</label>\n                <select class=\"form-control\" formControlName=\"submitted\">\n                  <option value=\"true\">Yes</option>\n                  <option value=\"false\">No</option>\n                </select>\n              </div>\n              <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">\n                Update\n              </button>\n              <!-- <p class=\"mt-5 mb-3 text-muted text-center\">&copy; 2017-2018</p> -->\n            </form>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"modal-footer\">\n      <button\n        type=\"button\"\n        class=\"btn btn-outline-dark\"\n        (click)=\"modal.close('Save click')\"\n      >\n        Close\n      </button>\n    </div>\n  </ng-template>\n\n<ng-template #editcontent let-modal>\n  <div class=\"modal-header\">\n    <h4 class=\"modal-title\" id=\"modal-basic-title\">Edit Report</h4>\n    <button\n      type=\"button\"\n      class=\"close\"\n      aria-label=\"Close\"\n      (click)=\"modal.dismiss('Cross click')\"\n    >\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body container\">\n    <div class=\"container\">\n      <div class=\"col-md-12\">\n        <div class=\"bodyx\">\n          <form\n            class=\"form-signin\"\n            action=\"#\"\n            id=\"reportForm\"\n            [formGroup]=\"reportForm\"\n            (ngSubmit)=\"onUpdate()\"\n          >\n            <div class=\"text-center mb-4\">\n              <img\n                class=\"mb-4\"\n                src=\"http://cdn2.hubspot.net/hub/270076/file-1598465330-png/website2014/solutions-performances.png?t=1423194477519\"\n                alt=\"\"\n                width=\"72\"\n                height=\"72\"\n              />\n              <h1 class=\"h3 mb-3 font-weight-normal\">Create Report</h1>\n              <p>\n                Please make sure every information entered is\n                <code>correctly formatted</code>\n              </p>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"\">Breached</label>\n              <input\n                type=\"number\" formControlName=\"breached\" class=\"form-control\" placeholder=\"\"/>\n            </div>\n            <div class=\"form-group\">\n                <label for=\"\">Total patients</label>\n                <input\n                  type=\"number\" formControlName=\"totalPatients\" class=\"form-control\" placeholder=\"\"/>\n              </div>\n              <div class=\"form-group\">\n                  <label for=\"\">Waiting Room</label>\n                  <input\n                    type=\"number\" formControlName=\"waitingRoom\" class=\"form-control\" placeholder=\"\"/>\n                </div>\n                <div class=\"form-group\">\n                    <label for=\"\">Triage</label>\n                    <input\n                      type=\"number\" formControlName=\"triage\" class=\"form-control\" placeholder=\"\"/>\n                  </div>\n                  <div class=\"form-group\">\n                      <label for=\"\">UTC</label>\n                      <input\n                        type=\"number\" formControlName=\"utc\" class=\"form-control\" placeholder=\"\"/>\n                    </div>\n                    <div class=\"form-group\">\n                        <label for=\"\">Majors</label>\n                        <input\n                          type=\"number\" formControlName=\"majros\" class=\"form-control\" placeholder=\"\"/>\n                      </div>\n                      <div class=\"form-group\">\n                          <label for=\"\">paediatrics</label>\n                          <input\n                            type=\"number\" formControlName=\"paediatrics\" class=\"form-control\" placeholder=\"\"/>\n                        </div>\n                        <div class=\"form-group\">\n                            <label for=\"\">Resus</label>\n                            <input\n                              type=\"number\" formControlName=\"resus\" class=\"form-control\" placeholder=\"\"/>\n                          </div>\n                          <div class=\"form-group\">\n                              <label for=\"\">Breached</label>\n                              <input\n                                type=\"number\" formControlName=\"breached\" class=\"form-control\" placeholder=\"\"/>\n                            </div>\n\n            <div class=\"form-group\">\n              <label for=\"\">Submitted</label>\n              <select class=\"form-control\" formControlName=\"status\">\n                <option value=\"true\">active</option>\n                <option value=\"false\">In Active</option>\n              </select>\n            </div>\n            <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">\n              Update\n            </button>\n            <p class=\"mt-5 mb-3 text-muted text-center\">&copy; 2017-2018</p>\n          </form>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"modal-footer\">\n    <button\n      type=\"button\"\n      class=\"btn btn-outline-dark\"\n      (click)=\"modal.close('Save click')\"\n    >\n      Save\n    </button>\n  </div>\n</ng-template>\n\n<ng-template #deletecontent let-modal>\n  <div class=\"modal-header\">\n    <h4 class=\"modal-title\" id=\"modal-basic-title\">Add Performance</h4>\n    <button\n      type=\"button\"\n      class=\"close\"\n      aria-label=\"Close\"\n      (click)=\"modal.dismiss('Cross click')\"\n    >\n      <span aria-hidden=\"true\">&times;</span>\n    </button>\n  </div>\n  <div class=\"modal-body container\">\n    <div class=\"container\">\n      <div class=\"col-md-12\">\n        Are you sure you want to delete the following document?\n      </div>\n    </div>\n  </div>\n  <div class=\"modal-footer\">\n    <button type=\"button\" class=\"btn btn-outline-dark\" (click)=\"onDelete()\">\n      Delete\n    </button>\n  </div>\n</ng-template>\n"
+
+/***/ }),
+
+/***/ "./src/app/pages/performance/performance.component.ts":
+/*!************************************************************!*\
+  !*** ./src/app/pages/performance/performance.component.ts ***!
+  \************************************************************/
+/*! exports provided: PerformanceComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PerformanceComponent", function() { return PerformanceComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var src_app_services_api_api_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/api/api.service */ "./src/app/services/api/api.service.ts");
+/* harmony import */ var src_app_services_helper_helper_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/helper/helper.service */ "./src/app/services/helper/helper.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var ngx_filter_pipe__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-filter-pipe */ "./node_modules/ngx-filter-pipe/esm5/ngx-filter-pipe.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm5/ng-bootstrap.js");
+
+
+
+
+
+
+
+var PerformanceComponent = /** @class */ (function () {
+    function PerformanceComponent(api, helper, calendar, formBuilder, filter) {
+        this.api = api;
+        this.helper = helper;
+        this.calendar = calendar;
+        this.formBuilder = formBuilder;
+        this.filter = filter;
+        this.viewType = 'table'; //table || graph || details
+        this.selectedTimeType = '';
+        this.submitted = false;
+        this.page = 1;
+        this.pageSize = 4;
+        this.searchTerm = { department: '' };
+        this.order = '';
+        this.reverse = false;
+        this.selectedArea = {
+            area: "",
+            breached: null,
+            created_at: "",
+            department: null,
+            endTime: "",
+            index: null,
+            majors: null,
+            manager: {},
+            paediatrics: null,
+            resus: null,
+            startTime: "",
+            submitted: false,
+            submittedBy: null,
+            totalPatients: null,
+            triage: null,
+            updated_at: "",
+            utc: null,
+            waitingRoom: null,
+            code: '',
+            _id: ''
+        };
+        this.y = [];
+        this.managerx = [];
+        this.calender = false;
+    }
+    PerformanceComponent.prototype.getManagers = function () {
+        var _this = this;
+        this.api.getManagers().subscribe(function (resp) {
+            console.log('all managers estemeed', resp);
+            _this.managerx = resp;
+        });
+    };
+    PerformanceComponent.prototype.sortBy = function (value) {
+        this.order = value;
+    };
+    PerformanceComponent.prototype.reverseSort = function (value) {
+        this.order = value;
+        this.reverse = !this.reverse;
+    };
+    Object.defineProperty(PerformanceComponent.prototype, "reportKeys", {
+        get: function () {
+            if (this.reports.length > 0) {
+                var x = Object.keys(this.reports[0]);
+                x.splice(x.indexOf('code'), 1);
+                x.splice(x.indexOf('index'), 1);
+                return x;
+            }
+            else {
+                return [];
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    PerformanceComponent.prototype.backFromGraph = function () {
+        this.viewType = 'table';
+        this.selectedReport = {};
+    };
+    PerformanceComponent.prototype.viewDetails = function (val, index) {
+        var _this = this;
+        this.helper.loading();
+        this.viewType = 'details';
+        this.index = index;
+        this.api.getReport(val._id).subscribe(function (response) {
+            console.log('report', response);
+            _this.selectedReport = response;
+            _this.graph = {
+                data: [
+                    { x: ['totalPatients', 'waitingRoom', 'Triage', 'UTC', 'Majors', 'Paediatrics', 'resus', 'Breached'],
+                        y: [_this.selectedReport.totalPatients, _this.selectedReport.waitingRoom, _this.selectedReport.triage, _this.selectedReport.utc, _this.selectedReport.majors, _this.selectedReport.paediatrics, _this.selectedReport.resus, _this.selectedReport.breached],
+                        type: 'scatter',
+                        marker: { color: ['#F44336', '#00BCD4', '#4CAF50', '#3F51B5', '#FF5722', '#CDDC39', '#5D4037', '#EC407A'] }
+                    }
+                ]
+            };
+            _this.helper.dismissLoading();
+        }, function (err) { return console.log('error', err); });
+    };
+    PerformanceComponent.prototype.viewBarGraph = function (index, val) {
+        this.viewType = 'graph';
+        this.graphType = 'bar';
+        this.selectedReport = val;
+        this.graph = {
+            data: [
+                { x: ['totalPatients', 'waitingRoom', 'Triage', 'UTC', 'Majors', 'Paediatrics', 'resus', 'Breached'],
+                    y: this.y[index],
+                    type: this.graphType,
+                    marker: { color: ['#F44336', '#00BCD4', '#4CAF50', '#3F51B5', '#FF5722', '#CDDC39', '#5D4037', '#EC407A'] }
+                }
+            ]
+        };
+    };
+    PerformanceComponent.prototype.date = function (date) {
+        return new Date(date).toLocaleString();
+    };
+    PerformanceComponent.prototype.viewPieGraph = function (index, val) {
+        this.viewType = 'graph';
+        this.graphType = 'pie';
+        this.selectedReport = val;
+        this.graph = {
+            data: [
+                { labels: ['totalPatients', 'waitingRoom', 'Triage', 'UTC', 'Majors', 'Paediatrics', 'resus', 'Breached'],
+                    values: this.y[index],
+                    type: this.graphType,
+                }
+            ]
+        };
+    };
+    PerformanceComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.api.getPerformanceData().subscribe(function (resp) {
+            console.log('Performance-', resp);
+            _this.performances = resp;
+        }, function (err) {
+            console.log('Performance error', err);
+        });
+        this.api.getAllReports()
+            .subscribe(function (res) {
+            var data = res;
+            var index = 0;
+            data = data.map(function (key) {
+                index++;
+                return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({}, key, { index: index });
+            });
+            console.log(data);
+            //  let y= ['totalPatients','waitingRoom','Triage', 'UTC','Majors','Paediatrics','resus','Breached'];
+            _this.y = data.map(function (key) {
+                return [key.totalPatients, key.waitingRoom, key.triage, key.utc, key.majors, key.paediatrics, key.resus, key.breached];
+            });
+            _this.graph = {
+                data: [
+                    { x: ['totalPatients', 'waitingRoom', 'Triage', 'UTC', 'Majors', 'Paediatrics', 'resus', 'Breached'],
+                        y: _this.y[0],
+                        type: 'bar',
+                        marker: { color: ['#F44336', '#00BCD4', '#4CAF50', '#3F51B5', '#FF5722', '#CDDC39', '#5D4037', '#EC407A'] }
+                    }
+                ]
+            };
+            _this.reports = data;
+            // console.log('reports', this.reports);
+        }, function (err) { return _this.handleError(err); });
+        this.api.getAllDepartments().subscribe(function (response) {
+            // console.log('dp', response);
+            _this.departments = response;
+            console.log('deparmtnets chale', _this.departments);
+            _this.api.getManagers().subscribe(function (m) {
+                console.log('all managers utimate', m);
+                var arr = m;
+                _this.managers = arr.map(function (mana) {
+                    return {
+                        code: mana._id,
+                        title: mana.username
+                    };
+                });
+            });
+        });
+        this.role = localStorage.getItem('role');
+        this.reportForm = this.formBuilder.group({
+            //  _id:[this.selectedArea._id],
+            code: [this.selectedArea.code],
+            department: [this.selectedArea.department],
+            area: [this.selectedArea.area],
+            breached: [this.selectedArea.breached],
+            created_at: [this.selectedArea.created_at],
+            endTime: [this.selectedArea.endTime],
+            index: [this.selectedArea.index],
+            majors: [this.selectedArea.majors],
+            manager: [this.selectedArea.manager],
+            paediatrics: [this.selectedArea.paediatrics],
+            resus: [this.selectedArea.resus],
+            startTime: [this.selectedArea.startTime],
+            submitted: [this.selectedArea.submitted],
+            submittedBy: [this.selectedArea.submittedBy],
+            totalPatients: [this.selectedArea.totalPatients],
+            triage: [this.selectedArea.triage],
+            updated_at: [this.selectedArea.updated_at],
+            utc: [this.selectedArea.utc],
+            waitingRoom: [this.selectedArea.waitingRoom],
+        });
+    };
+    PerformanceComponent.prototype.onTextChange = function (e) {
+        console.log(e);
+        var val = e.target.value;
+        //make the array full
+        this.pageSize = this.reports.length;
+        console.log('event', e.target.value);
+        this.searchTerm.department = e.target.value;
+        //   this.reports = this.filter.transform(this.reports, { title: this.searchTerm.title });
+    };
+    PerformanceComponent.prototype.showCalender = function (key) {
+        this.selectedTimeType = key;
+        this.calender = true;
+    };
+    PerformanceComponent.prototype.setTimeValue = function (e) {
+        console.log('d', e.value);
+        var value = e.value;
+        this.reportForm.controls[this.selectedTimeType].setValue(value);
+        this.calender = false;
+    };
+    PerformanceComponent.prototype.getReports = function () {
+        this.api.getAllReports()
+            .subscribe(function (res) {
+            var data = res;
+            var index = 0;
+            data = data.map(function (key, val) {
+                index++;
+                return tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({}, key, { index: index });
+            });
+        });
+    };
+    PerformanceComponent.prototype.handleError = function (err) {
+        console.log('Error: ', err.message);
+    };
+    PerformanceComponent.prototype.add = function (c) {
+        this.helper.open(c);
+    };
+    Object.defineProperty(PerformanceComponent.prototype, "f", {
+        // convenience getter for easy access to form fields
+        get: function () { return this.reportForm.controls; },
+        enumerable: true,
+        configurable: true
+    });
+    PerformanceComponent.prototype.onSubmit = function () {
+        var _this = this;
+        this.submitted = true;
+        console.log('mai chala');
+        // stop here if form is invalid
+        if (this.reportForm.invalid) {
+            console.log('invalid report form!');
+            return;
+        }
+        console.log(this.reportForm.value);
+        var data = this.reportForm.value;
+        delete data._id;
+        delete data.code;
+        console.log(data);
+        this.api.createReport(data)
+            .subscribe(function (res) {
+            console.log('res', res);
+            _this.helper.toast('success', 'Report Created', 'Your Report created.');
+            _this.helper.closeModal();
+            _this.getReports();
+        });
+    };
+    PerformanceComponent.prototype.onUpdate = function () {
+        var _this = this;
+        this.submitted = true;
+        console.log('mai chala');
+        // stop here if form is invalid
+        if (this.reportForm.invalid) {
+            console.log('invalid department form!');
+            return;
+        }
+        var data = Object.assign({}, this.reportForm.value);
+        var code = data.code;
+        delete data.code;
+        this.api.updateDepartment(code, data.value)
+            .subscribe(function (res) {
+            console.log('res', res);
+            _this.helper.toast('success', 'Department Updated', 'Your department is active');
+            _this.helper.closeModal();
+            _this.getReports();
+        });
+    };
+    PerformanceComponent.prototype.onDelete = function () {
+        var _this = this;
+        this.submitted = true;
+        this.api.deleteDepartment(this.selectedArea.code)
+            .subscribe(function (res) {
+            console.log('res', res);
+            _this.helper.toast('success', 'Department Deleted', 'Department successfully deleted.');
+            _this.helper.closeModal();
+            _this.getReports();
+        });
+    };
+    PerformanceComponent.prototype.edit = function (c, data) {
+        console.log('selected department', data);
+        this.helper.open(c);
+        this.reportForm.setValue(data);
+    };
+    PerformanceComponent.prototype.delete = function (c, data) {
+        console.log('selected department', data);
+        this.selectedArea.code = data.code;
+        this.helper.open(c);
+        // this.api.deleteDepartment();
+    };
+    PerformanceComponent.prototype.getDepartments = function () {
+        var _this = this;
+        this.api.getAllDepartments(function (res) {
+            _this.departments = res;
+            console.log('departments', _this.departments);
+        });
+    };
+    PerformanceComponent.prototype.getAreas = function () {
+        var _this = this;
+        this.api.getAllAreas(function (res) {
+            _this.areas = res;
+            console.log('areas', _this.areas);
+        });
+    };
+    PerformanceComponent.prototype.getx = function (e) {
+        var _this = this;
+        this.areas = [];
+        console.log('e', e);
+        this.api.getDepartmentAreas(e).subscribe(function (res) {
+            if (res) {
+                console.log('areas aagaye', res);
+                _this.areas = res;
+            }
+        });
+    };
+    PerformanceComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-performance',
+            template: __webpack_require__(/*! ./performance.component.html */ "./src/app/pages/performance/performance.component.html"),
+            styles: [__webpack_require__(/*! ./performance.component.css */ "./src/app/pages/performance/performance.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [src_app_services_api_api_service__WEBPACK_IMPORTED_MODULE_2__["ApiService"], src_app_services_helper_helper_service__WEBPACK_IMPORTED_MODULE_3__["HelperService"], _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_6__["NgbCalendar"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"], ngx_filter_pipe__WEBPACK_IMPORTED_MODULE_5__["FilterPipe"]])
+    ], PerformanceComponent);
+    return PerformanceComponent;
 }());
 
 
@@ -2287,7 +2744,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var API_URL = "http://ec2-54-255-215-45.ap-southeast-1.compute.amazonaws.com:3000/api";
+var API_URL = 'http://localhost:3000/api'; //"http://ec2-54-255-215-45.ap-southeast-1.compute.amazonaws.com:3000/api";
 //'http://localhost:3000/api'
 var ApiService = /** @class */ (function () {
     function ApiService(http) {
@@ -2484,6 +2941,13 @@ var ApiService = /** @class */ (function () {
         headers = headers.set("Content-Type", "application/json; charset=utf-8");
         headers = headers.set("authorization", this.token);
         return this.http.post(API_URL + "/reports/departmentReports", { id: departmentId }, { headers: headers });
+    };
+    ApiService.prototype.getPerformanceData = function () {
+        //find department
+        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
+        headers = headers.set("Content-Type", "application/json; charset=utf-8");
+        headers = headers.set("authorization", this.token);
+        return this.http.get(API_URL + "/reports/view_performance/all", { headers: headers });
     };
     /** GET SINGLE REPORT -
      * id: **Report ID**
@@ -2817,7 +3281,7 @@ module.exports = ".active{\r\n  background-color:rgb(241, 241, 241);\r\n}\r\n\r\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"left-sidebar-pro\">\r\n  <nav id=\"sidebar\" class=\"\">\r\n    <div class=\"sidebar-header\">\r\n      <a href=\"index.html\"\r\n        ><img class=\"main-logo\" src=\"./assets/img/logo/logo2.jpeg\" style=\"height:8em;padding-top:10px;padding-bottom:30px;\" alt=\"\"\r\n      /></a>\r\n      <strong\r\n        ><a\r\n          ><img src=\"./assets/img/logo/logosn.png\" alt=\"\"/></a\r\n      ></strong>\r\n    </div>\r\n    <div class=\"left-custom-menu-adp-wrap comment-scrollbar\">\r\n      <nav class=\"sidebar-nav left-sidebar-menu-pro\">\r\n        <ul class=\"metismenu\" id=\"menu1\">\r\n          <li  [routerLink]=\"['/dashboard/home']\" routerLinkActive='active'>\r\n            <a title=\"Landing Page\" aria-expanded=\"false\"\r\n              ><span\r\n                class=\"educate-icon educate-home icon-wrap\"\r\n                aria-hidden=\"true\"\r\n              ></span>\r\n              <span class=\"mini-click-non\">Dashboard</span></a\r\n            >\r\n          </li>\r\n          <li  [routerLink]=\"['/dashboard/managers']\" routerLinkActive='active'>\r\n            <a title=\"Landing Page\" aria-expanded=\"false\"\r\n              ><span\r\n                class=\"educate-icon educate-professor icon-wrap\"\r\n                aria-hidden=\"true\"\r\n              ></span>\r\n              <span class=\"mini-click-non\">Managers</span></a\r\n            >\r\n          </li>\r\n          <li  [routerLink]=\"['/dashboard/departments']\" routerLinkActive='active'>\r\n            <a title=\"Landing Page\" aria-expanded=\"false\"\r\n              ><span\r\n                class=\"educate-icon educate-course icon-wrap\"\r\n                aria-hidden=\"true\"\r\n              ></span>\r\n              <span class=\"mini-click-non\">Departments</span></a\r\n            >\r\n          </li>\r\n          <li  [routerLink]=\"['/dashboard/areas']\" routerLinkActive='active'>\r\n            <a title=\"Landing Page\" aria-expanded=\"false\"\r\n              ><span\r\n                class=\"educate-icon educate-course icon-wrap\"\r\n                aria-hidden=\"true\"\r\n              ></span>\r\n              <span class=\"mini-click-non\">Areas</span></a\r\n            >\r\n          </li>\r\n          <li  [routerLink]=\"['/dashboard/reports']\" routerLinkActive='active'>\r\n            <a title=\"Landing Page\" aria-expanded=\"false\"\r\n              ><span\r\n                class=\"educate-icon educate-form icon-wrap \"\r\n                aria-hidden=\"true\"\r\n              ></span>\r\n              <span class=\"mini-click-non\">Reports</span></a\r\n            >\r\n          </li>\r\n          <li  [routerLink]=\"['/dashboard/approvals']\" routerLinkActive='active'>\r\n            <a title=\"Landing Page\" aria-expanded=\"false\"\r\n              ><span\r\n                class=\"educate-icon educate-form icon-wrap \"\r\n                aria-hidden=\"true\"\r\n              ></span>\r\n              <span class=\"mini-click-non\">Approvals</span></a\r\n            >\r\n          </li>\r\n          <!-- <li  [routerLink]=\"['/dashboard/staff']\" routerLinkActive='active'>\r\n            <a title=\"Landing Page\" aria-expanded=\"false\"\r\n              ><span\r\n                class=\"educate-icon educate-professor icon-wrap\"\r\n                aria-hidden=\"true\"\r\n              ></span>\r\n              <span class=\"mini-click-non\">Doctors</span></a\r\n            >\r\n          </li> -->\r\n\r\n          <li >\r\n            <a title=\"Landing Page\" aria-expanded=\"false\"\r\n              ><span\r\n                class=\"educate-icon educate-event icon-wrap sub-icon-mg\"\r\n                aria-hidden=\"true\"\r\n              ></span>\r\n              <span class=\"mini-click-non\">Events & News</span></a\r\n            >\r\n          </li>\r\n\r\n          <li>\r\n            <a href=\"mailbox.html\" aria-expanded=\"false\"\r\n              ><span class=\"educate-icon educate-message icon-wrap\"></span>\r\n              <span class=\"mini-click-non\">Mailbox</span></a\r\n            >\r\n          </li>\r\n\r\n          <li id=\"removable\" (click)=\"logout()\">\r\n            <a  aria-expanded=\"false\"\r\n              ><span class=\"educate-icon educate-pages icon-wrap\"></span>\r\n              <span class=\"mini-click-non\">Logout</span></a\r\n            >\r\n          </li>\r\n        </ul>\r\n      </nav>\r\n    </div>\r\n  </nav>\r\n</div>\r\n"
+module.exports = "<div class=\"left-sidebar-pro\">\r\n  <nav id=\"sidebar\" class=\"\">\r\n    <div class=\"sidebar-header\">\r\n      <a href=\"index.html\"\r\n        ><img class=\"main-logo\" src=\"./assets/img/logo/logo2.jpeg\" style=\"height:8em;padding-top:10px;padding-bottom:30px;\" alt=\"\"\r\n      /></a>\r\n      <strong\r\n        ><a\r\n          ><img src=\"./assets/img/logo/logosn.png\" alt=\"\"/></a\r\n      ></strong>\r\n    </div>\r\n    <div class=\"left-custom-menu-adp-wrap comment-scrollbar\">\r\n      <nav class=\"sidebar-nav left-sidebar-menu-pro\">\r\n        <ul class=\"metismenu\" id=\"menu1\">\r\n          <li  [routerLink]=\"['/dashboard/home']\" routerLinkActive='active'>\r\n            <a title=\"Landing Page\" aria-expanded=\"false\"\r\n              ><span\r\n                class=\"educate-icon educate-home icon-wrap\"\r\n                aria-hidden=\"true\"\r\n              ></span>\r\n              <span class=\"mini-click-non\">Dashboard</span></a\r\n            >\r\n          </li>\r\n          <li  [routerLink]=\"['/dashboard/managers']\" routerLinkActive='active'>\r\n            <a title=\"Landing Page\" aria-expanded=\"false\"\r\n              ><span\r\n                class=\"educate-icon educate-professor icon-wrap\"\r\n                aria-hidden=\"true\"\r\n              ></span>\r\n              <span class=\"mini-click-non\">Managers</span></a\r\n            >\r\n          </li>\r\n          <li  [routerLink]=\"['/dashboard/departments']\" routerLinkActive='active'>\r\n            <a title=\"Landing Page\" aria-expanded=\"false\"\r\n              ><span\r\n                class=\"educate-icon educate-course icon-wrap\"\r\n                aria-hidden=\"true\"\r\n              ></span>\r\n              <span class=\"mini-click-non\">Departments</span></a\r\n            >\r\n          </li>\r\n          <li  [routerLink]=\"['/dashboard/areas']\" routerLinkActive='active'>\r\n            <a title=\"Landing Page\" aria-expanded=\"false\"\r\n              ><span\r\n                class=\"educate-icon educate-course icon-wrap\"\r\n                aria-hidden=\"true\"\r\n              ></span>\r\n              <span class=\"mini-click-non\">Areas</span></a\r\n            >\r\n          </li>\r\n          <li  [routerLink]=\"['/dashboard/reports']\" routerLinkActive='active'>\r\n            <a title=\"Landing Page\" aria-expanded=\"false\"\r\n              ><span\r\n                class=\"educate-icon educate-form icon-wrap \"\r\n                aria-hidden=\"true\"\r\n              ></span>\r\n              <span class=\"mini-click-non\">Reports</span></a\r\n            >\r\n          </li>\r\n          <li  [routerLink]=\"['/dashboard/approvals']\" routerLinkActive='active'>\r\n            <a title=\"Landing Page\" aria-expanded=\"false\"\r\n              ><span\r\n                class=\"educate-icon educate-form icon-wrap \"\r\n                aria-hidden=\"true\"\r\n              ></span>\r\n              <span class=\"mini-click-non\">Approvals</span></a\r\n            >\r\n          </li>\r\n          <li  [routerLink]=\"['/dashboard/performance']\" routerLinkActive='active'>\r\n            <a title=\"Landing Page\" aria-expanded=\"false\"\r\n              ><span\r\n                class=\"educate-icon educate-form icon-wrap \"\r\n                aria-hidden=\"true\"\r\n              ></span>\r\n              <span class=\"mini-click-non\">Performance</span></a\r\n            >\r\n          </li>\r\n          <!-- <li  [routerLink]=\"['/dashboard/staff']\" routerLinkActive='active'>\r\n            <a title=\"Landing Page\" aria-expanded=\"false\"\r\n              ><span\r\n                class=\"educate-icon educate-professor icon-wrap\"\r\n                aria-hidden=\"true\"\r\n              ></span>\r\n              <span class=\"mini-click-non\">Doctors</span></a\r\n            >\r\n          </li> -->\r\n\r\n          <li >\r\n            <a title=\"Landing Page\" aria-expanded=\"false\"\r\n              ><span\r\n                class=\"educate-icon educate-event icon-wrap sub-icon-mg\"\r\n                aria-hidden=\"true\"\r\n              ></span>\r\n              <span class=\"mini-click-non\">Events & News</span></a\r\n            >\r\n          </li>\r\n\r\n          <li>\r\n            <a href=\"mailbox.html\" aria-expanded=\"false\"\r\n              ><span class=\"educate-icon educate-message icon-wrap\"></span>\r\n              <span class=\"mini-click-non\">Mailbox</span></a\r\n            >\r\n          </li>\r\n\r\n          <li id=\"removable\" (click)=\"logout()\">\r\n            <a  aria-expanded=\"false\"\r\n              ><span class=\"educate-icon educate-pages icon-wrap\"></span>\r\n              <span class=\"mini-click-non\">Logout</span></a\r\n            >\r\n          </li>\r\n        </ul>\r\n      </nav>\r\n    </div>\r\n  </nav>\r\n</div>\r\n"
 
 /***/ }),
 
