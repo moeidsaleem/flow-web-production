@@ -2744,7 +2744,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var API_URL = 'http://localhost:3000/api'; //"http://ec2-54-255-215-45.ap-southeast-1.compute.amazonaws.com:3000/api";
+var API_URL = "http://ec2-54-255-215-45.ap-southeast-1.compute.amazonaws.com:3000/api";
 //'http://localhost:3000/api'
 var ApiService = /** @class */ (function () {
     function ApiService(http) {
