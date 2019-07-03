@@ -1,0 +1,30 @@
+{
+  "name": "flow-web-production",
+  "version": "1.0.0",
+  "description": "Flow Web production launch file",
+  "main": "server.js",
+  "dependencies": {},
+  "devDependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.16.4"
+  },
+  "scripts": {
+    "test": "npm start",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moeidsaleem/flow-web-production.git"
+  },
+  "keywords": [
+    "flowhms",
+    "flowweb",
+    "angular"
+  ],
+  "author": "atrixdigital",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moeidsaleem/flow-web-production/issues"
+  },
+  "homepage": "https://github.com/moeidsaleem/flow-web-production#readme"
+}
